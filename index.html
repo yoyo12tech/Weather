@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./pics/weather-news.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Weather</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./pics/logo.png" alt="logo" width="65px">
+            <div class="name">
+                <h6 class="logo-name">Weather</h6>
+            <p class="tag-line">Next-Gen Forecasts</p>
+            </div>
+            
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Live Cameras</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="icon">
+            <label for="cb">
+                <i class="fa-solid fa-moon moon"></i>
+                <i class="fa-solid fa-sun sun"></i>
+            </label>
+            <input id="cb" type="checkbox" name="checkbox" class="cb">            
+        </div>
+
+        <div class="burger-button">
+            <label class="burger-label" for="btn"><i class="fa-solid fa-bars"></i></label>
+            <input id="btn" type="checkbox" name="checkbox" class="bb-cb">
+        </div>
+        <nav class="collapsed-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Live Cameras</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="bg-hero">
+        </div>
+        <div class="main-content">
+            <div class="search-bar">
+                <input type="text" placeholder="Find your location..." id="search-input" onkeyup="getWeather(this.value)">
+                <button class="search-btn" type="button" onclick="getWeather(document.getElementById('search-input').value)">
+                    Find
+                    <i style="margin-left: 5px; font-size: 16px;" class="fa-solid fa-magnifying-glass-location"></i>
+
+                </button>
+            </div>
+            <div class="weather-display">
+                <div class="current-card">
+                    <div class="card-heading">
+                        <div class="day">
+                            Wednesday   
+                        </div>
+                        <div class="date">
+                            9 July
+                        </div>
+                    </div>
+                    <div class="card-main-content">
+                        <div class="city">
+                            
+                        </div>
+
+                        <div class="temprature">
+                            
+                        </div>
+                        <div class="icon-cont">
+                             <img class="cicon" src="" alt="">
+                        </div>
+                    
+                        <div class="description">
+                            
+                        </div>
+                        <div class="stats">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="future-card">
+                    <div class="card-heading" id="fc1-day">
+                        
+                    </div>
+                    <img id="fc1-icon" src="" alt="">
+                    <div class="primary-temprature" id="fc1-max-temp">
+                        
+                    </div>
+                    <div class="secondary-temprature"id="fc1-min-temp">
+                        
+                    </div>
+                    <div class="description" id="fc1-description">
+                       
+                    </div>
+                </div>
+                <div class="future-card">
+                    <div class="card-heading" id="fc2-day">
+                    </div>
+                    <img id="fc2-icon" src="" alt="">
+                    <div id="fc2-max-temp" class="primary-temprature">
+                        
+                    </div>
+                    <div id="fc2-min-temp" class="secondary-temprature">
+                       
+                    </div>
+                    <div id="fc2-description" class="description">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="ft-container">
+            <div class="group1">
+                <div class="subscribe">
+                    <input type="email" placeholder="Enter your email to subscribe...">
+                    <button>Subscribe <i class="fa-solid fa-envelope" style="margin-left: 0.3rem;"></i></button>
+                </div>
+                <div class="icon-collection">
+                    <ul>
+                        <li><i class="fa-brands fa-facebook"></i></li>
+                        <li><i class="fa-brands fa-x-twitter"></i></li>
+                        <li><i class="fa-brands fa-linkedin-in"></i></li>
+                        <li><i class="fa-brands fa-google"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="group2">
+                <p>Copyright 2025 Company name. Designed by Youssef Amr. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
