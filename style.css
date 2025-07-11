@@ -228,14 +228,19 @@ input:focus{
     box-shadow: 0 0 10px var(--primary-color) !important;
 }
 .main-content .search-bar button{
-    position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -0%;
     background-color: var(--primary-color);
-    border:none;
+    border: none;
     color: white;
-    padding: 0.8rem 1.3rem;
+    padding: 1.095rem 1.3rem;
     border-radius: 5rem;
     font-size: 1rem;
     transition: 0.3s ease-in-out;
+    border-bottom-left-radius: 0rem;
+    border-top-left-radius: 0rem;
 }
 .main-content .search-bar button:hover{
     box-shadow: 0 0 8px var(--primary-color);
@@ -367,14 +372,17 @@ footer .group1 .subscribe input{
     margin: 0;
 }
 footer .group1 .subscribe button{
-    position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
+    position: absolute;top: 50%;transform: translateY(-49.3%); right:0%;
     background-color: var(--primary-color);
     border:none;
     color: white;
-    padding: 0.8rem 0.9rem;
+    padding: 1rem 0.9rem;
     border-radius: 5rem;
     transition: 0.3s ease-in-out;
     font-size:1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
 }
 footer .group1 .subscribe button:hover{
     box-shadow: 0 0 8px var(--primary-color);
@@ -647,16 +655,6 @@ footer .group2 {
         font-size: 1rem;
         margin: 0;
     }
-    footer .group1 .subscribe button{
-        position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
-        background-color: var(--primary-color);
-        border:none;
-        color: white;
-        padding: 0.8rem 0.9rem;
-        border-radius: 5rem;
-        transition: 0.3s ease-in-out;
-        font-size:1rem;
-    }
     footer .group1 .icon-collection{
         width: 35%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
     }
@@ -736,7 +734,7 @@ footer .group2 {
 /* XS and below (less than 576px) */
 @media (max-width: 575.98px) {
     .main-content .weather-display>div{
-        width: calc(90%) !important;height: 22rem;
+        width: calc(98%) !important;height: 22rem;
     }
     .main-content .search-bar button{
         font-size: 0.95rem;
