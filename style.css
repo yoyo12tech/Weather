@@ -18,6 +18,7 @@ a{
     --card-bg-current-color:rgb(240, 240,240);
     --card-heading:rgb(249, 249, 249);
     --footer-color-font:rgb(66, 66, 66);
+    --hero-url: url(./pics/banner5.jpg);
 
 
 
@@ -33,6 +34,8 @@ body:has(.cb:checked){
     --card-heading:rgb(215,215,215);
     --card-heading:rgb(5, 5, 5);
     --footer-color-font:rgb(147, 147, 147);
+    --hero-url:url(./pics/banner2.jpg);
+
 
 
 
@@ -188,7 +191,7 @@ main{
 }
 .bg-hero{
     position: absolute; width: 100%;
-    background: url(./pics/banner.png);
+    background-image: var(--hero-url);
     background-size: cover;
     background-position: left center;
     height: 20rem;
