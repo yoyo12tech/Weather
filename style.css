@@ -225,7 +225,7 @@ input{
     transition: 0.3s ease-in-out;
 }
 input:focus{
-    box-shadow: 0 0 10px var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color) !important;
 }
 .main-content .search-bar button{
     position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
@@ -254,7 +254,6 @@ input:focus{
 .main-content .weather-display>div:hover{
     box-shadow: 0px 0px 10px var(--primary-color) ;
     z-index: 2;
-
 }
 
 .main-content .weather-display>div:nth-child(2){
@@ -274,10 +273,18 @@ input:focus{
     color: var(--font-color-secondary);
 
 }
-.main-content .weather-display>.current-card>.card-main-content>.city{
+.main-content .weather-display>.current-card>.card-main-content>.city-and-country{
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 1.4rem;
+}
+.flag{
+    padding-top: 1.4px;
+    filter: drop-shadow(0 0 1px var(--font-color-secondary));
+}
+.main-content .weather-display>.current-card>.card-main-content .city{
     font-size: 1.4rem;
     text-transform: capitalize;
-    text-align: left; padding-left: 1.4rem;
+    text-align: left; 
 }
 .main-content .weather-display>.current-card>.card-main-content>.temprature{
     font-size: 5rem;font-weight: 900;  color: var(--primary-color);
@@ -289,7 +296,6 @@ input:focus{
 .main-content .weather-display>.current-card>.card-main-content>.icon-cont>img{
     width: 5rem;
 }
-
 .main-content .weather-display>.current-card>.card-main-content>.description{
     color: var(--primary-color);
     text-align: start; margin-left: 1.8rem;
@@ -345,19 +351,20 @@ footer .group1{
 }
 footer .group1 .subscribe{
     position: relative;
-    width: 80%;
-    height: 2.9rem;
+    width: 80%;height: 100%;;
     margin-bottom: 1rem;
-
+    display: flex; align-items: center;
 }
 footer .group1 .subscribe input{
-    background-color: var(--body-background-color);
+    background-color: var(--header-background-color);
     color: var(--font-color-secondary);
-    width: 100%;
+    box-shadow: 0 0 2px var(--font-color-secondary);
+    width: 100%;height: 100%; 
     padding: 1rem 1rem;
     outline: none;border: none;
     border-radius: 5rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin: 0;
 }
 footer .group1 .subscribe button{
     position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
@@ -367,7 +374,7 @@ footer .group1 .subscribe button{
     padding: 0.8rem 0.9rem;
     border-radius: 5rem;
     transition: 0.3s ease-in-out;
-    font-size:0.9rem;
+    font-size:1rem;
 }
 footer .group1 .subscribe button:hover{
     box-shadow: 0 0 8px var(--primary-color);
@@ -624,15 +631,31 @@ footer .group2 {
     footer .group1 .subscribe{
         position: relative;
         width: 100%;
+        width: 100%;height: 100%;;
+        margin-bottom: 1rem;
+        display: flex; align-items: center
     }
+    
     footer .group1 .subscribe input{
-        background-color: var(--body-background-color);
+        background-color: var(--header-background-color);
         color: var(--font-color-secondary);
-        width: 100%;
+        box-shadow: 0 0 2px var(--font-color-secondary);
+        width: 100%;height: 100%; 
         padding: 1rem 1rem;
         outline: none;border: none;
         border-radius: 5rem;
-        margin-bottom: 1rem;
+        font-size: 1rem;
+        margin: 0;
+    }
+    footer .group1 .subscribe button{
+        position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
+        background-color: var(--primary-color);
+        border:none;
+        color: white;
+        padding: 0.8rem 0.9rem;
+        border-radius: 5rem;
+        transition: 0.3s ease-in-out;
+        font-size:1rem;
     }
     footer .group1 .icon-collection{
         width: 35%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
@@ -671,10 +694,27 @@ footer .group2 {
         width: calc(80%) !important;height: 22rem;
     }
     footer .group1{
-        padding: 1rem;
         padding-bottom: 0;
         width: 100%;margin: auto;
         display: flex;flex-direction: column; justify-content: space-around;justify-content: flex-start;
+    }
+    footer .group1 .subscribe{
+        position: relative;
+        width: 100%;height: 100%;;
+        margin-bottom: 1rem;
+        display: flex; align-items: center; justify-content: start;
+    }
+    
+    footer .group1 .subscribe input{
+        background-color: var(--header-background-color);
+        color: var(--font-color-secondary);
+        box-shadow: 0 0 2px var(--font-color-secondary);
+        width: 100%;height: 100%; 
+        padding: 1rem 1rem;
+        outline: none;border: none;
+        border-radius: 5rem;
+        font-size: 1rem;
+        margin: 0;
     }
     footer .group1 .icon-collection{
         width: 45%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
@@ -687,6 +727,7 @@ footer .group2 {
         font-size: 0.8rem;
 
     }
+
 
 
 
@@ -707,26 +748,7 @@ footer .group2 {
         width: 100%;margin: auto;
         display: flex;flex-direction: column; justify-content: space-around;justify-content: flex-start;
     }
-    footer .group1 .subscribe{
-        position: relative;
-        width: 100%;
-        font-size: 0.7rem;
-
-    }
-    footer .group1 .subscribe input{
-        background-color: var(--body-background-color);
-        color: var(--font-color-secondary);
-        width: 100%;
-        font-size: inherit;
-        padding: 1rem 1rem;
-        outline: none;border: none;
-        border-radius: 5rem;
-        margin-bottom: 1rem;
-    }
-    footer .group1 .subscribe button{
-        font-size: inherit;
-
-    }
+    
 
     footer .group1 .icon-collection{
         width: 35%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
@@ -740,20 +762,22 @@ footer .group2 {
     }
     footer .group1 .icon-collection{
         width: 45%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
-        font-size: 0.7rem;
+        font-size: 0.89rem;
     }
     footer .group1 .icon-collection ul{
         font-size: inherit;
     }
-     footer .group1 .icon-collection ul li{
+    footer .group1 .icon-collection ul li{
         width: 1.7rem;height: 1.7rem;
-     }
-
+    }
+    footer .group1 .subscribe button i{
+        display: none;
+    }
     footer .group2 {
-        padding: 1rem 2rem;
+        padding: 1rem 1rem;
         width: 100%;margin: auto;
         color:var(--footer-color-font);
-        font-size: 0.8rem;
+        font-size: 0.9rem;line-height: normal;
     }
 
 }

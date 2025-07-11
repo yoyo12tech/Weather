@@ -18,6 +18,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 const getIPBaseUrl ="https://api64.ipify.org?format=json";
 const geoLocationBaseUrl = "http://ip-api.com/json/"
 const WEATHER_API_KEY = "c37c242f0f1d479bbcf190839250807";
@@ -28,6 +29,8 @@ const cb = document.getElementById("cb")
 const cDay = document.querySelector(".day");
 const cDate = document.querySelector(".date");
 const cCity = document.querySelector(".city");
+const cFlag = document.querySelector(".flag");
+
 const cTemprature = document.querySelector(".temprature")
 const cIcon = document.querySelector(".cicon");
 const cDescription= document.querySelector(".description");
@@ -140,13 +143,64 @@ function updateAllDates(){
 
 updateAllDates();
 
+async function getCountryFlag(country) {
+  const url = `https://rest-countries10.p.rapidapi.com/country/${country}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'rest-countries10.p.rapidapi.com',
+      'x-rapidapi-key': 'bae5bc8e21msh4ca8ec5b26f1b90p175286jsnc0ad810aae41'
+    }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    console.log(response);
+    const data = await response.json();  // ← THIS is what you're missing
+    console.log(data);  // <-- This will show the real structure
+    console.log(data[0].flag.officialflag.svg)
+    return (data[0].flag.officialflag.svg);
+
+
+  } catch (error) {
+    console.error("Error fetching flag:", error.message);
+    return null;
+  }
+}
+
+
+function maxMinTempratures(secondDay,thirdDay){
+    let maxD2 = 0; let minD2 = 1000000000;
+    let maxD3 = 0; let minD3 = 1000000000;
+    for(let i =0;i<24;i++){
+        if(secondDay.hour[i].temp_c>maxD2){
+            maxD2=secondDay.hour[i].temp_c;
+        }
+        if(secondDay.hour[i].temp_c<minD2){
+            minD2=secondDay.hour[i].temp_c;
+        }
+        if(thirdDay.hour[i].temp_c>maxD3){
+            maxD3=thirdDay.hour[i].temp_c;
+        }
+        if(thirdDay.hour[i].temp_c<minD3){
+            minD3=thirdDay.hour[i].temp_c;
+        }
+    }
+    return {
+        "maxD2":maxD2,
+        "minD2":minD2,
+        "maxD3":maxD3,
+        "minD3":minD3,
+    }
+}
 
 async function getWeather(city){
     let data = await fetch(`${weatherBaseUrl}forecast.json?key=${WEATHER_API_KEY}&q=${city}&days=3`);
     data = await data.json();
     const {
         location:{
-            name
+            name,
+            country
         },
         current:{ 
             temp_c,
@@ -165,23 +219,30 @@ async function getWeather(city){
     
     } = data;
 
+
+    flagSrc= await getCountryFlag(country);
+    console.log(flagSrc)
+
     const secondDay = forecastday[1];
     const thirdDay = forecastday[2];
 
-    let d2Temp_c = secondDay.hour[now.getHours()].temp_c;
-    let d3Temp_c = thirdDay.hour[now.getHours()].temp_c;
+    let {maxD2,minD2,maxD3,minD3} = maxMinTempratures(secondDay,thirdDay);
 
-    let d2Des = secondDay.hour[now.getHours()].condition.text;
-    let d3Des = thirdDay.hour[now.getHours()].condition.text;
+    let d2Temp_c = maxD2;
+    let d3Temp_c = maxD3;
 
-    let d2Icon = secondDay.hour[now.getHours()].condition.icon;
-    let d3Icon = thirdDay.hour[now.getHours()].condition.icon;
+    let d2Des = secondDay.hour[15].condition.text; //choosed 15 which is 3PM. It is a good middle point for the daily weather
+    let d3Des = thirdDay.hour[15].condition.text;
 
-    let d2SecTemp_c = secondDay.hour[now.getHours()].feelslike_c;
-    let d3SecTemp_c = thirdDay.hour[now.getHours()].feelslike_c;
+    let d2Icon = secondDay.hour[15].condition.icon;
+    let d3Icon = thirdDay.hour[15].condition.icon;
+
+    let d2SecTemp_c = minD2;
+    let d3SecTemp_c = minD3;
 
 
     cCity.innerHTML=name;
+    cFlag.setAttribute("src",flagSrc);
     cTemprature.innerHTML=temp_c +"°C";
     cDescription.innerText=text;
     cIcon.setAttribute("src","https:" +icon);
