@@ -144,8 +144,21 @@ function updateAllDates(){
 updateAllDates();
 
 async function getCountryFlag(country) {
-  const url = `https://rest-countries10.p.rapidapi.com/country/${country}`;
-  const options = {
+    const numericCodeMap = {
+        "Saudi Arabia": "682",
+        "United States of America": "840",
+        "United Arab Emirates": "784",
+        "United Kingdom": "826",
+        "South Africa":"710",
+        "Palestine":"275",//ILL GIVE NAME ISRAEL THE CODE OF THE CORRECT FLAG!!!!
+        "Israel":"275", // FREE PALESTINE ANA DAMI FALESTINIIIIIIII
+
+    }
+    country = numericCodeMap[country] || country;
+    console.log(country)
+    const url = `https://rest-countries10.p.rapidapi.com/country/${country}`;
+    console.log(url);
+    const options = {
     method: 'GET',
     headers: {
       'x-rapidapi-host': 'rest-countries10.p.rapidapi.com',
