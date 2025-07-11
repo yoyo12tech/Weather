@@ -357,6 +357,7 @@ footer .group1 .subscribe input{
     padding: 1rem 1rem;
     outline: none;border: none;
     border-radius: 5rem;
+    font-size: 0.9rem;
 }
 footer .group1 .subscribe button{
     position: absolute;top: 50%;transform: translateY(-50%); right: 0.5%;
@@ -366,6 +367,7 @@ footer .group1 .subscribe button{
     padding: 0.8rem 0.9rem;
     border-radius: 5rem;
     transition: 0.3s ease-in-out;
+    font-size:0.9rem;
 }
 footer .group1 .subscribe button:hover{
     box-shadow: 0 0 8px var(--primary-color);
@@ -695,11 +697,8 @@ footer .group2 {
     .main-content .weather-display>div{
         width: calc(90%) !important;height: 22rem;
     }
-    .main-content .search-bar input{
-        font-size: 0.9rem;
-    }
     .main-content .search-bar button{
-        font-size: 0.9rem;
+        font-size: 0.95rem;
 
     }
     footer .group1{
