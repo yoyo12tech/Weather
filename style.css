@@ -35,15 +35,13 @@ body:has(.cb:checked){
     --card-heading:rgb(5, 5, 5);
     --footer-color-font:rgb(147, 147, 147);
     --hero-url:url(./pics/banner2.jpg);
-
-
-
-
-
 }
 body{
     background-color: var(--body-background-color);
     color: var(--font-color);
+}
+button{
+    z-index: 2;
 }
 
 header{
