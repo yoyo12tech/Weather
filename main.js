@@ -5,8 +5,8 @@
 //step 4: the ip obtained is then fed to another function that will give us location.(we are more intrested in city so this is what well take from it) (DONE ✓)
 //step 5: if any error occurs just make the city choosen Cairo (DONE ✓)
 //step 6: then use the city obtained and feed it to the weather api route(DONE ✓)
-//step 7: extract relevant info you want then feed it t0 a helper function(DONE ✓)
-//step 8:this helper function taken the info extracted and uses the dom (elemnts from step 2) and give them thier new value(DONE ✓)
+//step 7: extract relevant info you want (DONE ✓)
+//step 8:this  function taken the info extracted and uses the dom (elemnts from step 2) and give them thier new value(DONE ✓)
 //step 9: TTTTTTTTTTTTTHHHHHHHHHHHHHHHHHHHHHEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNN↓↓↓↓
 //step 10: When the user enters a letter ill use the onKeyUp to call the function that sends the weather api request(DONE ✓)
 //step 11: When the user presses FIND button i shall also call the weather api function(DONE ✓)
@@ -20,7 +20,7 @@
 
 
 const getIPBaseUrl ="https://api64.ipify.org?format=json";
-const geoLocationBaseUrl = "http://ip-api.com/json/"
+const geoLocationBaseUrl = "https://api.iplocation.net/?ip="
 const WEATHER_API_KEY = "c37c242f0f1d479bbcf190839250807";
 const weatherBaseUrl = "https://api.weatherapi.com/v1/";
 
@@ -75,7 +75,7 @@ async function getLocation(){ //INSPIRED BY KHABIB ☝🏻
         data = await fetch(`${geoLocationBaseUrl}${ip}`);
         data = await data.json();
         console.log("Success");
-        return (data.regionName);
+        return (data.country_name);
 
     }
     catch(error){
