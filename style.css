@@ -35,13 +35,11 @@ body:has(.cb:checked){
     --card-heading:rgb(5, 5, 5);
     --footer-color-font:rgb(147, 147, 147);
     --hero-url:url(./pics/banner2.jpg);
+
 }
 body{
     background-color: var(--body-background-color);
     color: var(--font-color);
-}
-button{
-    z-index: 2;
 }
 
 header{
@@ -212,36 +210,43 @@ main{
     position: relative;
     width: 100%;
     margin-bottom: 3rem;
+    display: flex;justify-content: center;
+    transition: 0.3s ease-in-out;
+
+}
+.main-content .search-bar:hover button, .main-content .search-bar:hover input  {
+    box-shadow: 0 0 8px var(--primary-color);
+
 }
 .main-content .search-bar input{
+    position: relative;
     background-color: var(--header-background-color);
     color: var(--font-color-secondary);
-    width: 100%;
+    width: 90%;
+    z-index: 2;
     padding: 1.1rem 1rem;
     outline: none;border: none;
     border-radius: 5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     font-size: 1rem;
-}
-input{
     transition: 0.3s ease-in-out;
+
 }
-input:focus{
-    box-shadow: 0 0 10px var(--primary-color) !important;
-}
+
 .main-content .search-bar button{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -0%;
+    width: 10%;
     background-color: var(--primary-color);
     border: none;
     color: white;
-    padding: 1.095rem 1.3rem;
+    padding: 1% 2%;
     border-radius: 5rem;
     font-size: 1rem;
-    transition: 0.3s ease-in-out;
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
+    transition: 0.3s ease-in-out;
+    display: flex; justify-content: space-between;align-items: center;
+
 }
 .main-content .search-bar button:hover{
     box-shadow: 0 0 8px var(--primary-color);
@@ -297,7 +302,7 @@ input:focus{
 
 }
 .main-content .weather-display>.current-card>.card-main-content>.icon-cont{
-    display:flex; 
+    display:flex;
 }
 .main-content .weather-display>.current-card>.card-main-content>.icon-cont>img{
     width: 5rem;
@@ -309,7 +314,7 @@ input:focus{
     margin-bottom: 1.5rem;
 }
 .main-content .weather-display>.current-card>.card-main-content>.stats{
-    width: 65%; margin-left: 9%;
+    width: 80%; margin-left: 9%; 
 }
 .main-content .weather-display>.current-card>.card-main-content>.stats>ul{
     list-style: none;display: flex;justify-content: space-between;
@@ -356,37 +361,41 @@ footer .group1{
     display: flex;justify-content: space-around;align-items: center;
 }
 footer .group1 .subscribe{
-    position: relative;
-    width: 80%;height: 100%;;
+    width: 80%;height: 100%;
     margin-bottom: 1rem;
     display: flex; align-items: center;
+}
+footer .group1 .subscribe:hover input,footer .group1 .subscribe:hover button{
+    box-shadow: 0 0 8px var(--primary-color);
 }
 footer .group1 .subscribe input{
     background-color: var(--header-background-color);
     color: var(--font-color-secondary);
-    box-shadow: 0 0 2px var(--font-color-secondary);
-    width: 100%;height: 100%; 
+    box-shadow: 0 0 1px var(--font-color-secondary);
+    width: 90%;height: 100%; 
     padding: 1rem 1rem;
     outline: none;border: none;
     border-radius: 5rem;
     font-size: 1rem;
+    transition: 0.3s ease-in-out;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     margin: 0;
 }
 footer .group1 .subscribe button{
-    position: absolute;top: 50%;transform: translateY(-49.3%); right:0%;
     background-color: var(--primary-color);
     border:none;
     color: white;
-    padding: 1rem 0.9rem;
+    padding: 1rem 1%;
+    height: 100%;
+    width: 10%;
+    display: flex; align-items: center; justify-content: space-between;
     border-radius: 5rem;
     transition: 0.3s ease-in-out;
     font-size:1rem;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
-}
-footer .group1 .subscribe button:hover{
-    box-shadow: 0 0 8px var(--primary-color);
 }
 
 footer .group1 .icon-collection{
@@ -610,6 +619,9 @@ footer .group2 {
     .main-content {
         width: 90%;
     }
+    .main-content .search-bar button{
+        padding: 1% 1.5%;
+    }
     .main-content .weather-display{
         display: flex;justify-content: center;
         align-items: center; 
@@ -618,6 +630,16 @@ footer .group2 {
     .main-content .weather-display>div{
         width: calc(100%/3) !important;height: 22rem;
     }
+    footer .group1 .subscribe button{
+        background-color: var(--primary-color);
+        border:none;
+        padding: 1.09rem 0 !important;
+        justify-content: center;padding: 1rem 0;
+    }
+    footer .group1 .subscribe button span{
+        display: none;
+    }
+
 }
 
 /* MD and below (less than 992px) */
@@ -628,9 +650,13 @@ footer .group2 {
         transition: 0.3s ease-in-out;
         cursor: pointer;
     }
+    .main-content .search-bar button{
+        padding: 1% 0.9%;
+    }
     .main-content .weather-display>div{
         width: calc(100%/2) !important;height: 22rem;
     }
+    
     footer .group1{
         padding: 1rem;
         padding-bottom: 0;
@@ -645,17 +671,6 @@ footer .group2 {
         display: flex; align-items: center
     }
     
-    footer .group1 .subscribe input{
-        background-color: var(--header-background-color);
-        color: var(--font-color-secondary);
-        box-shadow: 0 0 2px var(--font-color-secondary);
-        width: 100%;height: 100%; 
-        padding: 1rem 1rem;
-        outline: none;border: none;
-        border-radius: 5rem;
-        font-size: 1rem;
-        margin: 0;
-    }
     footer .group1 .icon-collection{
         width: 35%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
     }
@@ -679,6 +694,7 @@ footer .group2 {
 
 /* SM and below (less than 768px) */
 @media (max-width: 767.98px) {
+
     header nav{
         display: none ;
     }
@@ -689,8 +705,14 @@ footer .group2 {
     header .logo{
         order:1;
     }
+    .main-content .search-bar button{
+        padding: 0; justify-content: center
+    }
+    .main-content .search-bar button span{
+        display: none;
+    }
     .main-content .weather-display>div{
-        width: calc(80%) !important;height: 22rem;
+        width: calc(80%)!important;height: 22rem;
     }
     footer .group1{
         padding-bottom: 0;
@@ -702,18 +724,6 @@ footer .group2 {
         width: 100%;height: 100%;;
         margin-bottom: 1rem;
         display: flex; align-items: center; justify-content: start;
-    }
-    
-    footer .group1 .subscribe input{
-        background-color: var(--header-background-color);
-        color: var(--font-color-secondary);
-        box-shadow: 0 0 2px var(--font-color-secondary);
-        width: 100%;height: 100%; 
-        padding: 1rem 1rem;
-        outline: none;border: none;
-        border-radius: 5rem;
-        font-size: 1rem;
-        margin: 0;
     }
     footer .group1 .icon-collection{
         width: 45%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
@@ -737,9 +747,8 @@ footer .group2 {
     .main-content .weather-display>div{
         width: calc(98%) !important;height: 22rem;
     }
-    .main-content .search-bar button{
-        font-size: 0.95rem;
-
+    .main-content .search-bar button i,footer .group1 .subscribe button i {
+        font-size: 0.93rem !important;
     }
     footer .group1{
         padding: 1rem;
@@ -748,7 +757,6 @@ footer .group2 {
         display: flex;flex-direction: column; justify-content: space-around;justify-content: flex-start;
     }
     
-
     footer .group1 .icon-collection{
         width: 35%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
     }
@@ -769,9 +777,6 @@ footer .group2 {
     footer .group1 .icon-collection ul li{
         width: 1.7rem;height: 1.7rem;
     }
-    footer .group1 .subscribe button i{
-        display: none;
-    }
     footer .group2 {
         padding: 1rem 1rem;
         width: 100%;margin: auto;
@@ -779,8 +784,8 @@ footer .group2 {
         font-size: 0.9rem;line-height: normal;
     }
 
-}
 
+}
 
 
 
