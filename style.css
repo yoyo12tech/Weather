@@ -93,7 +93,6 @@ header nav ul li:hover{
     font-size: 1.4rem;
     transition: 0.3s;
     cursor: pointer;
-
 }
 .icon label i:nth-child(1){
     color:var(--font-color-secondary)
@@ -104,6 +103,7 @@ header nav ul li:hover{
 }
 .icon label i:hover{
     color: var(--primary-color);
+    transform: scale(1.1);
 
 }
 .icon .cb {
@@ -127,6 +127,7 @@ body:has(.cb:checked) .icon label i:nth-child(2){
 .burger-button .burger-label i:hover{
     font-size: 1.4rem;
     color:var(--primary-color);
+    transform: scale(1.1);
 }
 .burger-button input{
     visibility: hidden;
@@ -136,12 +137,12 @@ body:has(.cb:checked) .icon label i:nth-child(2){
     display: block;
     background-color: var(--header-background-color);
     position: absolute;
-    opacity: 0;
+    overflow: hidden;
     right: 0%;top: 100%;
     width: 100%;
-    height: auto;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
+    height: 0;
+    z-index: 11;
+    transition: 0.4s ease-in-out;
     box-shadow: 0px 4px 10px var(--header-background-color);
 
 }
@@ -153,17 +154,24 @@ body:has(.cb:checked) .icon label i:nth-child(2){
     align-items: center;
     margin-bottom: 1rem;
     border-radius: 1rem;
-
+    transform: translateY(-100%);
+    transition: 0.3s ease-in-out;
 }
 .collapsed-nav ul li{
     text-align: center;
     font-size: 1rem;
     padding: 1rem 0rem;
     width: 66%;
-    background-color: var(--body-background-color);
+    background-color: var(--header-background-color);
     border-bottom:0.05px solid var(--primary-color);
     transition: 0.3s ease-in-out;
 }
+.collapsed-nav ul li:hover{
+    background-color: var(--primary-color);
+    color:white;
+    transition: 0.3s ease-in-out;
+}
+
 .collapsed-nav ul li:nth-child(1){
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -172,15 +180,22 @@ body:has(.cb:checked) .icon label i:nth-child(2){
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
-
-
 .collapsed-nav ul li:nth-child(5){
     border-bottom:0px solid var(--primary-color);
 }
 
+
+body:has(.bb-cb:checked) .burger-button label i{
+    transform: rotate(180deg) scale(1.1);
+    color: var(--primary-color);
+}
 body:has(.bb-cb:checked) .collapsed-nav {
     opacity: 1;
     z-index: 16;
+    height: 320px; /*cuz height auto doesnt animate so i need to put f9xed height thats how i do drop dpwn effect wioth smooth transitiojijng and also set the coolapes nav as oveflow hiddden so ul when it trslates from up to down it doesnt apaper except inside it  !*/
+}
+body:has(.bb-cb:checked) .collapsed-nav ul {
+    transform: translateY(0);
 }
 main{
     position: relative;
@@ -265,6 +280,7 @@ main{
 .main-content .weather-display>div:hover{
     box-shadow: 0px 0px 10px var(--primary-color) ;
     z-index: 2;
+
 }
 
 .main-content .weather-display>div:nth-child(2){
@@ -302,7 +318,7 @@ main{
 
 }
 .main-content .weather-display>.current-card>.card-main-content>.icon-cont{
-    display:flex;
+    display:flex; 
 }
 .main-content .weather-display>.current-card>.card-main-content>.icon-cont>img{
     width: 5rem;
@@ -314,7 +330,7 @@ main{
     margin-bottom: 1.5rem;
 }
 .main-content .weather-display>.current-card>.card-main-content>.stats{
-    width: 80%; margin-left: 9%; 
+    width: 65%; margin-left: 9%;
 }
 .main-content .weather-display>.current-card>.card-main-content>.stats>ul{
     list-style: none;display: flex;justify-content: space-between;
@@ -616,6 +632,10 @@ footer .group2 {
 /* LG and below (less than 1200px) */
 @media (max-width: 1199.98px) {
 
+    .collapsed-nav{
+        display: none !important;
+        
+    }
     .main-content {
         width: 90%;
     }
@@ -697,6 +717,10 @@ footer .group2 {
 
     header nav{
         display: none ;
+    }
+    .collapsed-nav{
+        display: block !important;
+        
     }
     header .burger-button{
         display: block;
