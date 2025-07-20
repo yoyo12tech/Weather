@@ -140,9 +140,10 @@ body:has(.cb:checked) .icon label i:nth-child(2){
     overflow: hidden;
     right: 0%;top: 100%;
     width: 100%;
+    opacity: 0;
     height: 0;
     z-index: 11;
-    transition: 0.4s ease-in-out;
+    transition: height 0.4s ease-in-out;
     box-shadow: 0px 4px 10px var(--header-background-color);
 
 }
@@ -619,16 +620,17 @@ footer .group2 {
 
 
 
-
+@media (min-width: 767.98px) {
+    .collapsed-nav{
+        opacity: 0 !important
+    }
+}
 
 
 /* LG and below (less than 1200px) */
 @media (max-width: 1199.98px) {
 
-    .collapsed-nav{
-        display: none !important;
-        
-    }
+
     .main-content {
         width: 90%;
     }
@@ -763,9 +765,6 @@ footer .group2 {
 @media (max-width: 575.98px) {
     .main-content .weather-display>div{
         width: calc(98%) !important;height: 22rem;
-    }
-    .main-content .search-bar button i,footer .group1 .subscribe button i {
-        font-size: 0.93rem !important;
     }
     footer .group1{
         padding: 1rem;
