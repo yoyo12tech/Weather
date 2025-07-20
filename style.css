@@ -377,7 +377,7 @@ footer .group1{
 footer .group1 .subscribe{
     width: 80%;height: 100%;
     margin-bottom: 1rem;
-    display: flex; align-items: center;
+    display: flex; align-items:center;
 }
 footer .group1 .subscribe:hover input,footer .group1 .subscribe:hover button{
     box-shadow: 0 0 8px var(--primary-color);
@@ -400,10 +400,10 @@ footer .group1 .subscribe button{
     background-color: var(--primary-color);
     border:none;
     color: white;
-    padding: 1rem 1%;
-    height: 100%;
-    width: 10%;
     display: flex; align-items: center; justify-content: space-between;
+    padding: 2% 1%;
+    width: 10%;
+    margin-bottom: 0.02459px;
     border-radius: 5rem;
     transition: 0.3s ease-in-out;
     font-size:1rem;
