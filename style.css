@@ -386,8 +386,8 @@ footer .group1 .subscribe input{
     background-color: var(--header-background-color);
     color: var(--font-color-secondary);
     box-shadow: 0 0 1px var(--font-color-secondary);
-    width: 90%;height: 100%; 
-    padding: 1rem 1rem;
+    width: 90%; 
+    padding: 1.1rem 1rem;
     outline: none;border: none;
     border-radius: 5rem;
     font-size: 1rem;
@@ -400,15 +400,15 @@ footer .group1 .subscribe button{
     background-color: var(--primary-color);
     border:none;
     color: white;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 2% 1%;
+    padding: 1.1rem 1rem;
     width: 10%;
-    margin-bottom: 0.02459px;
     border-radius: 5rem;
     transition: 0.3s ease-in-out;
     font-size:1rem;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    gap: 0.5rem;
+    display: flex; align-items: center; justify-content: center;
 
 }
 
@@ -649,12 +649,7 @@ footer .group2 {
     .main-content .weather-display>div{
         width: calc(100%/3) !important;height: 22rem;
     }
-    footer .group1 .subscribe button{
-        background-color: var(--primary-color);
-        border:none;
-        padding: 1.09rem 0 !important;
-        justify-content: center;padding: 1rem 0;
-    }
+    
     footer .group1 .subscribe button span{
         display: none;
     }
@@ -747,6 +742,9 @@ footer .group2 {
         width: 100%;height: 100%;;
         margin-bottom: 1rem;
         display: flex; align-items: center; justify-content: start;
+    }
+    footer .group1 .subscribe button{
+        padding: 1.2rem 1rem;
     }
     footer .group1 .icon-collection{
         width: 45%;align-self: start; padding-left: 0.8rem;padding-bottom: 0;
