@@ -169,20 +169,13 @@ body:has(.cb:checked) .icon label i:nth-child(2){
 .collapsed-nav ul li:hover{
     background-color: var(--primary-color);
     color:white;
-    transition: 0.3s ease-in-out;
 }
 
 .collapsed-nav ul li:nth-child(1){
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 }
-.collapsed-nav ul li:nth-child(5){
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-}
-.collapsed-nav ul li:nth-child(5){
-    border-bottom:0px solid var(--primary-color);
-}
+
 
 
 body:has(.bb-cb:checked) .burger-button label i{
