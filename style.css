@@ -155,7 +155,6 @@ body:has(.cb:checked) .icon label i:nth-child(2){
     margin-bottom: 1rem;
     border-radius: 1rem;
     transform: translateY(-100%);
-    transition: 0.3s ease-in-out;
 }
 .collapsed-nav ul li{
     text-align: center;
