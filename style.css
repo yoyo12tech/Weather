@@ -143,7 +143,7 @@ body:has(.cb:checked) .icon label i:nth-child(2){
     opacity: 0;
     height: 0;
     z-index: 11;
-    transition: height 0.4s ease-in-out;
+    transition: height 0.4s ease-in-out, opacity 0.55s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0px 4px 10px var(--header-background-color);
 
 }
@@ -187,9 +187,13 @@ body:has(.bb-cb:checked) .collapsed-nav {
     opacity: 1;
     z-index: 16;
     height: 320px; /*cuz height auto doesnt animate so i need to put f9xed height thats how i do drop dpwn effect wioth smooth transitiojijng and also set the coolapes nav as oveflow hiddden so ul when it trslates from up to down it doesnt apaper except inside it  !*/
+    transition: height 0.4s ease-in-out;
+
 }
 body:has(.bb-cb:checked) .collapsed-nav ul {
     transform: translateY(0);
+    transition: transform  0.3s ease-in-out;
+
 }
 main{
     position: relative;
